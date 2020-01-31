@@ -423,6 +423,9 @@ class Sysmo_usim_sjs1(Sysmo_usim):
 		print(" * Resetting...")
 		self.sim.card.SELECT_ADF_USIM()
 		ef_sqnc = SYSMO_USIMSJS1_FILE_EF_SQNC(None)
+		ef_sqnc.sqn_check_enabled = False
+		ef_sqnc.sqn_age_limit_enabled = False
+		ef_sqnc.sqn_max_delta_enabled = False
 		self.sim.select(SYSMO_USIMSJS1_EF_SQNC)
 		res = self.sim.update_binary(ef_sqnc.encode())
 
